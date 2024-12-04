@@ -12,6 +12,7 @@ import Signup from "./screens/Signup";
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Firstaid from './screens/Firstaid';
+import Kit from './screens/Kit';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ export default function App() {
       >
         <Tab.Screen 
           name="Home" 
-          component={Home} 
+          component={Kit} 
           options={{tabBarIcon:({color})=><FontAwesome name="home" size={24} color={color}/>,}} 
         />
         <Tab.Screen 
