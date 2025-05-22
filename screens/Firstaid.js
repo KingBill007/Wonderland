@@ -1,37 +1,44 @@
 import React from "react";
-import { View, Text, StyleSheet, StatusBar, Dimensions, Image } from 'react-native';
+import { 
+    View, Text, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity 
+} from 'react-native';
 
 
 const Wwidth = Dimensions.get('window').width;
 
-const Firstaid = () =>{
+const Firstaid = ({navigation}) =>{
+
+    const navToIns = () => {
+        navigation.navigate('Instructions');
+    };
+
     return(
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.hText}>First Aid Topics</Text>
             </View>
             <View style={styles.listContainer}>
-                <View style={styles.topic}>
+                <TouchableOpacity onPress={navToIns} style={styles.topic}>
                     <Image source={require('../assets/topicsImg/allergy.png')} 
                         style={styles.topicImg}
                         resizeMode="contain"
                     />
                     <Text style={styles.topicText}>Allergic Reaction</Text>
-                </View>
-                <View style={styles.topic}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.topic}>
                     <Image source={require('../assets/topicsImg/allergy.png')} 
                         style={styles.topicImg}
                         resizeMode="contain"
                     />
                     <Text style={styles.topicText}>Allergic Reaction</Text>
-                </View>
-                <View style={styles.topic}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.topic}>
                     <Image source={require('../assets/topicsImg/allergy.png')} 
                         style={styles.topicImg}
                         resizeMode="contain"
                     />
                     <Text style={styles.topicText}>Allergic Reaction</Text>
-                </View>
+                </TouchableOpacity>
             </View>
         </View>
     )

@@ -18,10 +18,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kingbill007.Wonderland"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a644eabf-f5ae-4ae6-8ec5-cc80c6ff16c4"
+      }
+    },
+    "owner": "kingbill007"
   }
 }

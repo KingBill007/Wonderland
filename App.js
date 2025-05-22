@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
+
 
 //icons
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -13,6 +16,7 @@ import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Firstaid from './screens/Firstaid';
 import Kit from './screens/Kit';
+import Instructions from './screens/Instructions';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,8 +35,8 @@ export default function App() {
           options={{tabBarIcon:({color})=><FontAwesome name="home" size={24} color={color}/>,}} 
         />
         <Tab.Screen 
-          name="Firstaid" 
-          component={Firstaid}
+          name="FirstaidTab" 
+          component={TopicsStack}
           options={{tabBarIcon:({color})=><FontAwesome5 name="first-aid" size={24} color={color} />,}} 
         />
         <Tab.Screen 
@@ -43,6 +47,15 @@ export default function App() {
       </Tab.Navigator>
     </NavigationContainer>
   );
+}
+
+function TopicsStack() {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="Firstaid" component={Firstaid} options={{headerShown: false}} />
+      <Stack.Screen name="Instructions" component={Instructions} />
+    </Stack.Navigator>
+  )
 }
 
 const styles = StyleSheet.create({
