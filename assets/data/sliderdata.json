@@ -1,0 +1,23 @@
+
+    {
+        "CPR":[
+            {
+        "title": "• cpr instructions 1",
+        "imageNum": 0
+    },
+    {
+        "title": "• cpr instructions 2",
+        "imageNum": 1
+    }
+        ],
+        "LPR":[
+    {
+        "title": "• lpr instructions 1",
+        "imageNum": 0
+    },
+    {
+        "title": "• lpr instructions 2",
+        "imageNum": 1
+    }
+        ]
+    }

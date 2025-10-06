@@ -23,18 +23,6 @@ const Kit = () =>{
 
     return(
         <View style={styles.container}>
-            {/* <ScrollView showsHorizontalScrollIndicator={false}>
-            <View style={styles.kitsView}>
-                    {
-                    data.map((item, index)=>
-                        <TouchableOpacity style={styles.kitsBox} onPress={()=>{showModal(item.name,index,item.info)}} key={index}>
-                            <Image source={images[index]} style={styles.kitsImg} />
-                            <Text style={styles.kitsText}>{item.name}</Text>
-                        </TouchableOpacity>
-                    )}
-            </View>
-            </ScrollView>
-            */}
             <View style={styles.kitsView}>
             <FlatList 
                 vertical

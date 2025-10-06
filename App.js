@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-const Stack = createStackNavigator();
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 
 //icons
@@ -19,6 +20,7 @@ import Kit from './screens/Kit';
 import Instructions from './screens/Instructions';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -50,12 +52,38 @@ export default function App() {
 }
 
 function TopicsStack() {
-  return(
+  return (
     <Stack.Navigator>
-      <Stack.Screen name="Firstaid" component={Firstaid} options={{headerShown: false}} />
-      <Stack.Screen name="Instructions" component={Instructions} />
+      <Stack.Screen
+        name="Firstaid"
+        component={Firstaid}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Instructions"
+        component={Instructions}
+        options={{
+          title: "Bleeding",
+          headerRight: () => (
+            <TouchableOpacity 
+            onPress={() => alert(" Call Help ")} 
+            style={
+              {
+                marginRight:15, 
+                backgroundColor:'#edebeb',
+                width:35,height:35,
+                borderRadius:17.5,
+                justifyContent:'center',
+                alignItems:'center'}
+            }
+            >
+              <Ionicons name="call" size={24} color="red" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </Stack.Navigator>
-  )
+  );
 }
 
 const styles = StyleSheet.create({

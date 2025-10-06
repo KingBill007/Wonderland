@@ -9,7 +9,7 @@ const Wwidth = Dimensions.get('window').width;
 const Firstaid = ({navigation}) =>{
 
     const navToIns = () => {
-        navigation.navigate('Instructions');
+        navigation.navigate('Instructions' , {name:'CPR'} );
     };
 
     return(
@@ -23,7 +23,7 @@ const Firstaid = ({navigation}) =>{
                         style={styles.topicImg}
                         resizeMode="contain"
                     />
-                    <Text style={styles.topicText}>Allergic Reaction</Text>
+                    <Text style={styles.topicText}>CPR</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.topic}>
                     <Image source={require('../assets/topicsImg/allergy.png')} 
