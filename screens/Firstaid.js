@@ -2,14 +2,17 @@ import React from "react";
 import { 
     View, Text, StyleSheet, StatusBar, Dimensions, Image, TouchableOpacity 
 } from 'react-native';
+import { topics } from "../assets/data/topics";
+import { topicsicons } from "../assets/data/topics";
 
 
 const Wwidth = Dimensions.get('window').width;
 
 const Firstaid = ({navigation}) =>{
 
-    const navToIns = () => {
-        navigation.navigate('Instructions' , {name:'CPR'} );
+    const navToIns = (item) => {
+        console.log(item)
+        navigation.navigate('Instructions' , {name: item} );
     };
 
     return(
@@ -18,27 +21,17 @@ const Firstaid = ({navigation}) =>{
                 <Text style={styles.hText}>First Aid Topics</Text>
             </View>
             <View style={styles.listContainer}>
-                <TouchableOpacity onPress={navToIns} style={styles.topic}>
-                    <Image source={require('../assets/topicsImg/allergy.png')} 
-                        style={styles.topicImg}
-                        resizeMode="contain"
-                    />
-                    <Text style={styles.topicText}>CPR</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.topic}>
-                    <Image source={require('../assets/topicsImg/allergy.png')} 
-                        style={styles.topicImg}
-                        resizeMode="contain"
-                    />
-                    <Text style={styles.topicText}>Allergic Reaction</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.topic}>
-                    <Image source={require('../assets/topicsImg/allergy.png')} 
-                        style={styles.topicImg}
-                        resizeMode="contain"
-                    />
-                    <Text style={styles.topicText}>Allergic Reaction</Text>
-                </TouchableOpacity>
+                {
+                    topics.map((item, index) => (
+                    <TouchableOpacity key={index} onPress={()=>{navToIns(item)}} style={styles.topic}>
+                        <Image source={topicsicons[index]} 
+                            style={styles.topicImg}
+                            resizeMode="contain"
+                        />
+                        <Text style={styles.topicText}>{item}</Text>
+                    </TouchableOpacity>
+                    ))
+                }  
             </View>
         </View>
     )
