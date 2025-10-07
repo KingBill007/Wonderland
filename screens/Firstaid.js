@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { topics } from "../assets/data/topics";
 import { topicsicons } from "../assets/data/topics";
+import { ScrollView } from "react-native-gesture-handler";
 
 
 const Wwidth = Dimensions.get('window').width;
@@ -20,19 +21,22 @@ const Firstaid = ({navigation}) =>{
             <View style={styles.header}>
                 <Text style={styles.hText}>First Aid Topics</Text>
             </View>
-            <View style={styles.listContainer}>
-                {
-                    topics.map((item, index) => (
-                    <TouchableOpacity key={index} onPress={()=>{navToIns(item)}} style={styles.topic}>
-                        <Image source={topicsicons[index]} 
-                            style={styles.topicImg}
-                            resizeMode="contain"
-                        />
-                        <Text style={styles.topicText}>{item}</Text>
-                    </TouchableOpacity>
-                    ))
-                }  
-            </View>
+
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={styles.listContainer}>
+                    {
+                        topics.map((item, index) => (
+                        <TouchableOpacity key={index} onPress={()=>{navToIns(item)}} style={styles.topic}>
+                            <Image source={topicsicons[index]} 
+                                style={styles.topicImg}
+                                resizeMode="contain"
+                            />
+                            <Text style={styles.topicText}>{item}</Text>
+                        </TouchableOpacity>
+                        ))
+                    } 
+                </View>
+            </ScrollView>
         </View>
     )
 }
@@ -57,15 +61,16 @@ const styles = StyleSheet.create({
         //backgroundColor: 'green',
         alignSelf: 'center',
         width: Wwidth-50,
-        paddingTop: 20,
+        paddingTop: 10,
+        paddingBottom: 80,
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
     },
     topic:{
         width: '48%',
-        height: 45,
-        marginTop: 8,
+        minHeight: 45,
+        marginVertical: 10,
         //backgroundColor: 'blue',
         borderRadius: 5,
         borderWidth: 1,
@@ -73,6 +78,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 5,
+        overflow: 'hidden',
+        //flexWrap: 'wrap',
         //marginHorizontal: 3,
     },
     topicImg:{
@@ -80,6 +87,8 @@ const styles = StyleSheet.create({
         height: '70%',
     },
     topicText:{
+        flexShrink: 1,      
+        //flexWrap: 'wrap',
     }
 })
 
